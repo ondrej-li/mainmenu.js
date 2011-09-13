@@ -14,7 +14,7 @@
         }
 
         ul.top-level-menu {
-            /*display: block;*/
+            display: block;
             list-style: none;
             border: 1px solid #ee82ee;
             height: 30px;
@@ -75,16 +75,30 @@
             text-decoration: none;
             color: #3366CC;
             outline: none;
-            position: static;
+            position: relative;
+            display: block;
+            float: none;
         }
 
         .arrow {
-            border-color: #3366CC transparent transparent;
-            border-style: solid dashed dashed;
-            margin-left: 5px;
+font-size: 0px; line-height: 0%; width: 0px;
+border-top: 4px solid #77c;
+border-left: 4px solid #f6f6f6;
+border-right: 4px solid #f6f6f6; 
+margin-left: 5px;
             position: relative;
-            top: 10px;
+            top: -5px;       }
+
+        .arrow-left {
+font-size: 0px; line-height: 0%; width: 0px;
+border-top: 4px dashed transparent;
+border-left: 4px solid black;
+border-bottom: 4px dashed transparent;
+margin-left: 5px;
+            position: relative;
+            top: -5px;
         }
+
     </style>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
     <script type="text/javascript">
@@ -115,15 +129,23 @@
         <ul role="top-level-menu" class="top-level-menu">
             <li><a href="/">Home</a></li>
             <li>
-                <a href="#">Heading 2 <span class="arrow"></span></a>
+                <a href="#">Heading 2<span class="arrow"></span></a>
                 <ul role="2nd-level-menu" class="snd-level-menu">
                     <li><a href="/item1">item1</a></li>
-                    <li><a href="/item2">item2</a></li>
-                    <li><a href="/item3">item3</a></li>
+                    <li><a href="/item2">item2</a></li>                                
+                    <li>
+			                <a href="#">Heading 3<span class="arrow-left"></span></a>
+			                <ul role="2nd-level-menu" class="snd-level-menu">
+			                    <li><a href="/item1">item1</a></li>
+			                    <li><a href="/item2">item2</a></li>
+			                    <li><a href="/item3">item3</a></li>
+			                </ul>
+            		</li>
+	
                 </ul>
             </li>
             <li>
-                <a href="#">Heading 3 <span class="arrow"></span></a>
+                <a href="#">Heading 3<span class="arrow"></span></a>
                 <ul class="snd-level-menu" role="2nd-level-menu">
                     <li><a href="/item1">item1</a></li>
                     <li><a href="/item2">item2</a></li>
