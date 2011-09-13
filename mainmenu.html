@@ -1,18 +1,143 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-loose.dtd">
-
+<!DOCTYPE html>
 <html>
-<head>
-	<style type="text/css">
 
-	</style>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
-	<script type="text/javascript" >
-		jQuery(function () {
-			alert("OK");		
-		});
-	</script>
+<head>
+    <style type="text/css">
+        .menu {
+            border: 1px solid red;
+            position: absolute;
+            width: 100%;
+            height: 30px;
+            cursor: default;
+            z-index: 999;
+            margin-bottom: 30px;
+        }
+
+        ul.top-level-menu {
+            /*display: block;*/
+            list-style: none;
+            border: 1px solid #ee82ee;
+            height: 30px;
+        }
+
+        ul.snd-level-menu {
+            display: none;
+            list-style: none;
+            position: relative;
+            /*top:-30px;*/
+            /*left:50px;*/
+            /*position: absolute;*/
+            /*border: 1px solid #C3D1EC;*/
+            /*box-shadow: 0 1px 5px #CCCCCC;*/
+            /*margin-top: -1px;*/
+            /*display: none;*/
+            /*padding: 0px 16px 0px 0;*/
+        }
+
+        ul.snd-level-menu-active {
+            display: block !important;
+        }
+
+        .menu.snd-level-menu-active a {
+
+        }
+
+        .menu ul li {
+            padding: 0;
+            float: left;
+            display: block;
+            margin: 2px;
+        }
+
+        .menu ul li ul li {
+            border: 3px solid silver;
+            padding: 0;
+            display: block;
+            float: none;
+            margin: 0;
+            position: static;
+        }
+
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background: white;
+            position: relative;
+        }
+
+        .menu a:hover {
+            background-color: #e4ebf8;
+        }
+
+        .menu a {
+            border: 1px solid blue;
+            text-decoration: none;
+            color: #3366CC;
+            outline: none;
+            position: static;
+        }
+
+        .arrow {
+            border-color: #3366CC transparent transparent;
+            border-style: solid dashed dashed;
+            margin-left: 5px;
+            position: relative;
+            top: 10px;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function () {
+            $(".snd-level-menu").each(function (i, e) {
+                var $this = $(this).prev();
+                $this.click(function() {
+                    if ($(this).next().hasClass("snd-level-menu-active")) {
+                        $(this).next().removeClass("snd-level-menu-active");
+
+                    } else {
+                        $(this).next().addClass("snd-level-menu-active");
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-
+<div style="padding: 5px; border:2px solid gray; position: relative">
+    <ul>
+        <li>Normal li</li>
+        <li>Normal li 2</li>
+        <li>Normal li 3</li>
+    </ul>
+    <div style="clear: both"></div>
+    <div class="menu">
+        <ul role="top-level-menu" class="top-level-menu">
+            <li><a href="/">Home</a></li>
+            <li>
+                <a href="#">Heading 2 <span class="arrow"></span></a>
+                <ul role="2nd-level-menu" class="snd-level-menu">
+                    <li><a href="/item1">item1</a></li>
+                    <li><a href="/item2">item2</a></li>
+                    <li><a href="/item3">item3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Heading 3 <span class="arrow"></span></a>
+                <ul class="snd-level-menu" role="2nd-level-menu">
+                    <li><a href="/item1">item1</a></li>
+                    <li><a href="/item2">item2</a></li>
+                    <li><a href="/item3">item3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div style="clear: both"></div>
+    <ul style="margin-top: 50px">
+        <li>Normal li</li>
+        <li>Normal li 2</li>
+        <li>Normal li 3</li>
+    </ul>
+</div>
 </body>
 </html>
