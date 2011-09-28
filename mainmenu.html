@@ -47,13 +47,12 @@
             position: relative;
             display: block;
             float: none;
-            padding: 0 0 0 5px;
+            padding: 2px 0 2px 5px;
             height:25px;
-            /*min-width: 150px !important;*/
         }
 
         ul.snd-level-menu a:hover {
-            background-color: #e4ebf8 !important;
+            /*background-color: #e4ebf8 !important;*/
         }
 
         ul.trd-level-menu {
@@ -91,6 +90,7 @@
             float: none;
             margin: 0;
             position: relative;
+            border:1px solid #eee;
         }
 
         .menu ul {
@@ -104,6 +104,15 @@
         .menu a:hover {
             background-color: #e4ebf8;
         }
+        
+        .menu ul li ul li a:hover {
+        	border: 1px dotted silver;
+        	background-color: #B3D4FF !important;
+        }
+        
+        .menu ul li ul li a {
+        	border: 1px dotted transparent;
+        }        
 
         .menu a {
             border-right: 1px solid #999;
@@ -119,7 +128,6 @@
         }
 
         .menu a .label {
-            /*min-width: 150px;*/
             display: inline-block;
         }
 
@@ -165,11 +173,11 @@
                 $this.click(function() {
                     if ($this.next().hasClass("snd-level-menu-active")) {
                         $this.next().removeClass("snd-level-menu-active");
-                        $this.next().fadeOut("fast");
+                        $this.next().fadeOut(100);
 
                     } else {
                         $this.next().addClass("snd-level-menu-active");
-                        $this.next().fadeIn("fast");
+                        $this.next().fadeIn(100);
                     }
                 });
             });
@@ -178,13 +186,13 @@
                 $this.click(function() {
                     if ($this.next().hasClass("trd-level-menu-active")) {
                         $this.next().removeClass("trd-level-menu-active");
-                        $this.next().fadeOut("fast");
+                        $this.next().fadeOut(100);
 
                     } else {
                         $this.next().addClass("trd-level-menu-active");
 								$this.next().css("left", $this.outerWidth());
 								$this.next().css("top", - $this.prev().outerHeight());                        
-                        $this.next().fadeIn("fast");
+                        $this.next().fadeIn(100);
                     }
                 });
             });
