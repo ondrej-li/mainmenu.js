@@ -4,11 +4,10 @@
     <style type="text/css">
         .menu {
             border: 1px solid black;
-            position: absolute;
             width: 100%;
             height: 30px;
             cursor: default;
-            margin: 0 0 30px 0;
+            margin: 0 0 0 0;
             padding: 0 0 0 0;
             font-family: verdana, arial, sans-serif;
             /*eye-candy*/
@@ -47,12 +46,13 @@
             position: relative;
             display: block;
             float: none;
-            padding: 2px 0 2px 5px;
+            padding: 0 0 0 5px;
             height:25px;
+            /*min-width: 150px !important;*/
         }
 
         ul.snd-level-menu a:hover {
-            /*background-color: #e4ebf8 !important;*/
+            background-color: #e4ebf8 !important;
         }
 
         ul.trd-level-menu {
@@ -90,7 +90,6 @@
             float: none;
             margin: 0;
             position: relative;
-            border:1px solid #eee;
         }
 
         .menu ul {
@@ -104,19 +103,6 @@
         .menu a:hover {
             background-color: #e4ebf8;
         }
-        
-        .menu ul li ul li a:hover {
-        	border-top: 1px dotted black;
-        	border-bottom: 1px dotted black;
-        	border-right: none;
-        	background-color: #B3D4FF !important;
-        }
-        
-        .menu ul li ul li a {
-        	border-top: 1px dotted transparent;
-        	border-bottom: 1px dotted transparent;
-        	border-right: none;
-        }        
 
         .menu a {
             border-right: 1px solid #999;
@@ -132,6 +118,7 @@
         }
 
         .menu a .label {
+            /*min-width: 150px;*/
             display: inline-block;
         }
 
@@ -177,11 +164,11 @@
                 $this.click(function() {
                     if ($this.next().hasClass("snd-level-menu-active")) {
                         $this.next().removeClass("snd-level-menu-active");
-                        $this.next().fadeOut(100);
+                        $this.next().fadeOut("fast");
 
                     } else {
                         $this.next().addClass("snd-level-menu-active");
-                        $this.next().fadeIn(100);
+                        $this.next().fadeIn("fast");
                     }
                 });
             });
@@ -190,13 +177,13 @@
                 $this.click(function() {
                     if ($this.next().hasClass("trd-level-menu-active")) {
                         $this.next().removeClass("trd-level-menu-active");
-                        $this.next().fadeOut(100);
+                        $this.next().fadeOut("fast");
 
                     } else {
                         $this.next().addClass("trd-level-menu-active");
 								$this.next().css("left", $this.outerWidth());
 								$this.next().css("top", - $this.prev().outerHeight());                        
-                        $this.next().fadeIn(100);
+                        $this.next().fadeIn("fast");
                     }
                 });
             });
@@ -204,13 +191,7 @@
     </script>
 </head>
 <body>
-<div style="padding: 5px; border:2px solid gray; position: relative">
-    <ul>
-        <li>Normal li</li>
-        <li>Normal li 2</li>
-        <li>Normal li 3</li>
-    </ul>
-    <div style="clear: both"></div>
+<div style="padding: 5px; border:2px solid gray;">
     <div class="menu">
         <ul role="top-level-menu" class="top-level-menu">
             <li><a href="/">Home<span class="arrow-no"></span></a></li>
@@ -240,119 +221,6 @@
             </li>
         </ul>
     </div>
-    <div style="clear: both"></div>
-    <ul style="margin-top: 50px">
-        <li>Normal li</li>
-        <li>Normal li 2</li>
-        <li>Normal li 3</li>
-    </ul>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis augue ligula, nec vestibulum sapien. Ut
-        sodales commodo semper. Cras mattis congue vulputate. Integer a rutrum orci. Etiam mauris nisi, ultricies at
-        condimentum vel, ullamcorper at purus. Nunc congue libero in libero vulputate vel elementum dui malesuada. Etiam
-        lorem est, sagittis ac porta quis, vestibulum non lectus. Cum sociis natoque penatibus et magnis dis parturient
-        montes, nascetur ridiculus mus. Aenean luctus eros at lacus accumsan congue. Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit. Quisque nunc quam, gravida ut porttitor vitae, consectetur eget mauris. Vivamus ut
-        mauris nec sem fringilla laoreet sollicitudin id justo.
-
-        Aliquam eget tellus nec eros consequat iaculis. In non lacus sit amet ligula tincidunt adipiscing eu eget dolor.
-        Nunc cursus, quam ut iaculis malesuada, augue sapien aliquet lorem, tristique aliquam lectus quam et mauris.
-        Mauris elementum, lacus non imperdiet luctus, nulla augue malesuada lacus, vel molestie nunc justo sit amet
-        enim. Suspendisse sagittis dictum consectetur. In viverra, diam imperdiet aliquam faucibus, sapien metus
-        fringilla libero, vel lacinia enim neque semper est. Proin bibendum ornare tristique. Fusce metus neque,
-        hendrerit commodo sodales tristique, porttitor volutpat lacus. Vivamus malesuada arcu vitae tortor blandit vel
-        porta mauris adipiscing. Vivamus id nunc ligula, ut posuere urna.
-
-        Vestibulum lorem orci, mollis in eleifend non, commodo sed diam. Sed sagittis, erat interdum dapibus blandit,
-        orci odio luctus risus, eget adipiscing felis tellus sed quam. Sed tempor, tortor ac dictum dignissim, velit
-        libero mattis arcu, in tristique eros diam in tortor. Integer pharetra urna eget dui porttitor tempus. Quisque
-        vulputate, erat eu suscipit condimentum, ligula tellus rhoncus erat, venenatis scelerisque eros elit id enim.
-        Nam a diam dolor, a faucibus libero. In risus massa, tristique ut dapibus et, vehicula id odio. Sed eget leo
-        mauris, in rhoncus tortor. Praesent pulvinar molestie faucibus. Phasellus rhoncus tincidunt libero, non luctus
-        quam commodo eu. Sed non semper elit. Vivamus sed magna erat, scelerisque elementum arcu. Sed at tortor urna.
-        Duis malesuada, felis sit amet malesuada lobortis, nunc sem interdum purus, quis interdum ligula dui vel justo.
-
-        Pellentesque dapibus aliquam consectetur. Curabitur ante risus, vehicula id aliquet ut, viverra nec diam. Mauris
-        at magna neque. Cras elementum risus vitae mauris sodales tristique. Phasellus eget nulla nisl. Nam pulvinar
-        enim eget velit ultricies fermentum. Nam vehicula suscipit egestas. Aliquam at libero nulla, id malesuada mi. In
-        nec lacus dolor, sed laoreet sem. Quisque varius, purus id pulvinar molestie, neque arcu venenatis sem, non
-        commodo quam sapien a neque. Donec porttitor, libero ullamcorper tristique lacinia, erat risus molestie magna,
-        vel pretium nisi sapien a nisl.
-
-        Cras adipiscing egestas eros ac venenatis. Cum sociis natoque penatibus et magnis dis parturient montes,
-        nascetur ridiculus mus. Nunc est elit, bibendum vel eleifend non, euismod at ligula. Nullam placerat fringilla
-        tempus. Nullam sagittis tempus mi et tincidunt. Curabitur vitae orci libero, eu tempus odio. Morbi quis
-        sollicitudin mauris. Quisque ut ipsum nibh. In aliquam ipsum varius mauris feugiat sit amet pharetra turpis
-        eleifend. Nam gravida suscipit augue, et aliquet dolor mollis euismod. Vestibulum suscipit accumsan est ut
-        semper. Praesent ut ipsum quis lectus rhoncus auctor eu sed massa. Morbi nec neque nisl. Phasellus facilisis
-        ante eget leo pellentesque laoreet. Sed ultrices odio in orci auctor imperdiet.
-
-        Duis imperdiet accumsan mauris, et auctor orci convallis et. Cras ut mattis dui. Vestibulum feugiat, est sit
-        amet fringilla porta, nisi nulla eleifend est, eget consectetur massa enim ut est. In hac habitasse platea
-        dictumst. Morbi tristique rutrum ipsum eget lobortis. Curabitur et elit vitae lorem sodales posuere. Vivamus
-        sapien tortor, condimentum at fringilla sed, aliquam vitae mi. Duis ac luctus tortor. Mauris tempor rhoncus
-        hendrerit. Etiam scelerisque feugiat mollis. Suspendisse at neque at sapien accumsan accumsan. Nulla elementum
-        tristique ipsum sed venenatis. Aliquam quis tellus eros, ut ultrices risus. Integer vitae vulputate augue. Fusce
-        bibendum sem non erat convallis laoreet.
-
-        Duis nisl velit, condimentum ac dignissim ut, mattis non justo. Suspendisse congue nisl mi, sit amet rutrum
-        massa. Nullam vehicula odio at erat gravida dictum. Cum sociis natoque penatibus et magnis dis parturient
-        montes, nascetur ridiculus mus. Phasellus leo lorem, aliquam scelerisque accumsan sit amet, mattis iaculis
-        ligula. Pellentesque dapibus ante sed leo mollis dictum. Ut at tristique urna. Pellentesque et dignissim mauris.
-        Aenean ullamcorper cursus arcu nec dictum. Vivamus in justo a nisi hendrerit venenatis. Aenean a quam non velit
-        varius consequat. Proin vel sapien sed risus vestibulum fermentum. Curabitur molestie felis vitae mi iaculis
-        convallis. Ut sed libero quis dui dignissim pretium ac in neque.
-
-        Proin eu libero massa. Nullam massa ligula, dapibus ac fringilla non, semper eget nulla. Pellentesque habitant
-        morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus nisl ligula, bibendum vel
-        fringilla sit amet, volutpat id augue. Integer in lectus ante. Phasellus id nisl vel nisl porttitor consectetur.
-        Etiam laoreet volutpat enim a lacinia. Vivamus in mauris at nisi lacinia malesuada.
-
-        Vivamus sollicitudin sagittis leo, eu imperdiet arcu consectetur at. Etiam mollis, nibh ut suscipit sagittis,
-        est justo hendrerit elit, vitae imperdiet urna velit sed neque. Nullam non massa quis elit blandit congue non
-        vitae libero. Morbi ac dolor eget quam bibendum iaculis. Cras porttitor volutpat felis sed aliquet. Cras commodo
-        luctus dui, non commodo lectus blandit nec. Donec blandit tristique magna et venenatis. Morbi posuere consequat
-        dolor in placerat. Mauris fringilla sapien at ante convallis dapibus. Nulla congue, lacus tincidunt feugiat
-        consequat, est nulla suscipit erat, vel pharetra nibh felis sed sapien. Suspendisse potenti.
-
-        Sed aliquam fermentum placerat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-        mus. Proin aliquet leo id arcu laoreet in sodales odio rhoncus. Nam viverra turpis non velit tincidunt vitae
-        posuere tellus sollicitudin. Morbi mollis tempor rutrum. Mauris ullamcorper lacus id tortor ornare pretium. Nam
-        tincidunt tempor neque et vestibulum. Quisque placerat mi vel metus facilisis tempor. Sed venenatis rutrum
-        lorem, et cursus orci sodales ac.
-
-        Maecenas ac laoreet nulla. Curabitur nec dolor sit amet velit mollis eleifend. Pellentesque ultrices iaculis
-        aliquet. Nulla cursus tristique risus, ut condimentum odio pellentesque a. Nulla bibendum, ipsum sit amet
-        lobortis venenatis, mauris arcu cursus sem, vel ultrices magna sapien ut felis. Sed et adipiscing dui. In hac
-        habitasse platea dictumst. Sed hendrerit nisi id ipsum tempor malesuada. Cras faucibus egestas fringilla. Nunc a
-        sapien ac ante pulvinar semper. Vestibulum quis justo tellus, in dictum purus. Phasellus odio risus, lobortis et
-        molestie eget, tempor et erat. Proin viverra sagittis vulputate. Cum sociis natoque penatibus et magnis dis
-        parturient montes, nascetur ridiculus mus. Nulla varius ornare massa nec vulputate.
-
-        Pellentesque lacinia dolor vel lorem lobortis feugiat. Suspendisse dictum molestie sapien at tempus. Curabitur
-        vel dolor quis massa gravida auctor et et leo. Nullam eget nunc non lectus condimentum tincidunt. Suspendisse
-        tristique gravida sagittis. Donec condimentum fringilla nisl id condimentum. Nunc urna augue, lacinia eget
-        fermentum at, facilisis ac risus. Nulla facilisi. Pellentesque habitant morbi tristique senectus et netus et
-        malesuada fames ac turpis egestas. Duis quis purus vel est dapibus aliquet. Suspendisse urna dui, laoreet non
-        pulvinar vel, semper quis enim. Etiam quis leo magna. Sed ullamcorper leo sit amet lorem faucibus imperdiet.
-        Aliquam interdum malesuada augue, eget facilisis nulla consectetur eu.
-
-        Duis sit amet nulla ac turpis hendrerit feugiat. Praesent dignissim feugiat ornare. Aliquam placerat ligula in
-        lacus imperdiet interdum vel ac diam. Phasellus id euismod lectus. Nullam urna dui, congue et facilisis id,
-        ultrices et lectus. Donec luctus gravida urna, sit amet tempus justo dignissim sed. Ut suscipit erat et risus
-        aliquam sagittis. Mauris ut ipsum ipsum, et rhoncus mi. Praesent a tellus eu arcu venenatis vehicula quis at
-        justo. Nunc a neque sed urna mollis vestibulum.
-
-        Morbi nunc turpis, lobortis vel euismod et, adipiscing sollicitudin nisi. Vivamus pretium facilisis vehicula.
-        Nullam sapien nulla, facilisis vel congue a, rhoncus id dolor. Suspendisse placerat gravida dolor vel dapibus.
-        Donec et elementum nunc. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-        Pellentesque posuere, purus vitae ornare porta, lectus mi posuere elit, vel tempus turpis erat quis nulla. Duis
-        tincidunt tortor et sapien porttitor cursus.
-
-        Ut sem ipsum, pretium vel molestie luctus, hendrerit eu libero. Suspendisse posuere euismod imperdiet. Phasellus
-        augue nisi, iaculis id pulvinar vitae, hendrerit id mauris. Fusce at lobortis tellus. Vivamus semper blandit
-        sapien, suscipit convallis lorem commodo sodales. Maecenas dui mi, imperdiet a viverra eget, porta accumsan
-        augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-        Pellentesque vel enim sit amet est viverra pharetra. Ut eget lacinia augue. Mauris a viverra sapien. </p>
 </div>
 </body>
 </html>
