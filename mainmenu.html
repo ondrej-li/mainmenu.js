@@ -206,14 +206,7 @@ li p.hr  {
                     $this.next().fadeOut("fast");
                 } else {
                     // find any open menu and hide it
-                    $(".snd-level-menu-active").each(function(i, e){
-                        $(e).removeClass("snd-level-menu-active");
-                        $(e).fadeOut("fast");
-                    });
-                    $(".trd-level-menu-active").each(function(i, e){
-                        $(e).removeClass("trd-level-menu-active");
-                        $(e).fadeOut("fast");
-                    });
+                    hideMenu();
                     $this.next().addClass("snd-level-menu-active");
                     $this.next().fadeIn("fast");
                 }
@@ -238,7 +231,24 @@ li p.hr  {
                 }
             });
         });
+        $('body').bind('contextmenu click', function() {
+            hideMenu();
+        });
+        $('.menu2').bind('contextmenu click', function(event) {
+            event.stopPropagation();
+        });        
     });
+    
+    function hideMenu() {
+        $(".snd-level-menu-active").each(function(i, e) {
+            $(e).removeClass("snd-level-menu-active");
+            $(e).fadeOut("fast");
+        });
+        $(".trd-level-menu-active").each(function(i, e) {
+            $(e).removeClass("trd-level-menu-active");
+            $(e).fadeOut("fast");
+        });
+    }    
 </script>
 </head>
 <body>
