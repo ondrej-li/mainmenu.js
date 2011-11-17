@@ -236,7 +236,16 @@ li p.hr  {
         });
         $('.menu2').bind('contextmenu click', function(event) {
             event.stopPropagation();
-        });        
+        });
+        // select all menu item (except for first level and submenu links) and make them flash on click, then close the menu
+        $('.menu2 ul li ul li a:not(:has(span.label))').bind('click', function(event) {
+            $(this).fadeIn(150).fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150).fadeOut(150, function() {
+                $(".snd-level-menu-active").each(function(i, e) {
+                    $(e).removeClass("snd-level-menu-active");
+                    $(e).fadeOut("fast");
+                });
+            });
+        });    
     });
     
     function hideMenu() {
